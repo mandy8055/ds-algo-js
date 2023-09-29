@@ -8,6 +8,7 @@ module.exports = {
   collectCoverageFrom: [
     'src/**/*.mjs',
     '!scripts/**/*.mjs',
+    '!other/**/*.mjs',
     '!src/**/driver.mjs',
   ],
   coverageReporters: ['text', 'lcov'],

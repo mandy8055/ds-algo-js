@@ -9,7 +9,12 @@ The `src` directory contains various subdirectories for different categories of 
 To run a specific file with CLI input, use the following command:
 
 ```bash
+# Using pnpm
 pnpm run-file ./src/patterns/driver.mjs
+# Using npm
+npm run run-file ./src/patterns/driver.mjs
+# Using yarn
+yarn run-file ./src/patterns/driver.mjs
 ```
 
 ### Commands

@@ -1,4 +1,4 @@
 import colors from 'colors';
-export default function logger(output) {
-  console.log(colors.magenta.bold(`Output:\n${output}`).trim());
+export default function logger(output, color = 'magenta') {
+  console.log(colors[color].bold(output).trim());
 }

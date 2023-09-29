@@ -1,7 +1,7 @@
 import readline from 'readline';
 import colors from 'colors';
 
-function getInput(prompt) {
+function getInput(prompt = '') {
   const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
