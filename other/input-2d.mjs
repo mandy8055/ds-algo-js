@@ -6,7 +6,9 @@ import convertTo2D from '../src/2D-arrays/convert-1d-to-2d.mjs';
 export default async function get2DArray() {
   const rows = parseInt(await getInput('Enter number of rows '));
   const cols = parseInt(await getInput('Enter number of columns '));
-  logger(`Enter ${rows * cols} elements`, 'green');
+  if (process.argv[2] === 'undefined') {
+    logger(`Enter ${rows * cols} elements`, 'green');
+  }
   const input2D = await inputArray(rows * cols);
   return convertTo2D(input2D, rows, cols);
 }

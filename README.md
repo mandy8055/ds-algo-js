@@ -17,6 +17,20 @@ npm run run-file ./src/patterns/driver.mjs
 yarn run-file ./src/patterns/driver.mjs
 ```
 
+To run a specific file with file input, use the following command:
+
+```bash
+# Using pnpm
+pnpm run-file src/2D-arrays/driver.mjs custom/inputFile.txt
+# Using npm
+npm run run-file src/2D-arrays/driver.mjs custom/inputFile.txt
+# Using yarn
+yarn run-file src/2D-arrays/driver.mjs custom/inputFile.txt
+```
+
+> The driver.mjs can be used to run the problems. This file is created just to separate the concerns. Also the input that is coming is in string format. So you need to manually type cast it if you're expecting a number for example.
+> Array, 2D array inputs are provided line by line just as in [this file](custom/inputFile.txt).
+
 ### Commands
 
 - `run-file`: Runs the file which matches the user provided path.
