@@ -1,4 +1,3 @@
-// runProgram.js
 const { spawn } = require('child_process');
 
 // Get the file from the command line arguments
