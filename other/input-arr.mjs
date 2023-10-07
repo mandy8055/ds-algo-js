@@ -3,8 +3,12 @@ import logger from '../scripts/logger.mjs';
 
 export default async function inputArray(len) {
   if (!len) {
-    len = await getInput('Enter length of array ');
-    logger(`Enter ${len} elements`, 'green');
+    if (process.argv[2] === 'undefined') {
+      len = await getInput('Enter length of array ');
+      logger(`Enter ${len} elements`, 'green');
+    } else {
+      len = await getInput();
+    }
   }
   const inputArr = [];
   for (let i = 0; i < len; i++) {
