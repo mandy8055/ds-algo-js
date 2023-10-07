@@ -1,3 +1,6 @@
+/* 
+ @param n: non-negative integer
+*/
 export default function sumDigits(n) {
   // base case
   if (n === 0) {
