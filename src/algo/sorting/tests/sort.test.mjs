@@ -1,17 +1,15 @@
-// import insertionSort from '../insertion-sort';
-// import bubbleSort from '../bubble-sort';
-// import selectionSort from '../selectionSort';
-// import other sorting algorithms...
-
+import bubbleSort from '../bubbleSort.mjs';
+import insertionSort from '../insertionSort.mjs';
 import mergeSort from '../mergeSort.mjs';
+import quickSort from '../quickSort.mjs';
+import selectionSort from '../selectionSort.mjs';
 
 const sortingAlgorithms = [
-  //   { name: 'Insertion Sort', sort: insertionSort },
-  //   { name: 'Bubble Sort', sort: bubbleSort },
-  //   { name: 'Selection Sort', sort: selectionSort },
-  //   { name: 'Quick Sort', sort: quickSort },
+  { name: 'Insertion Sort', sort: insertionSort },
+  { name: 'Bubble Sort', sort: bubbleSort },
+  { name: 'Selection Sort', sort: selectionSort },
+  { name: 'Quick Sort', sort: quickSort },
   { name: 'Merge Sort', sort: mergeSort },
-  // add other sorting algorithms...
 ];
 
 describe('Sorting Algorithms', () => {
