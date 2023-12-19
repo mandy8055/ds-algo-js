@@ -5,7 +5,7 @@ export default async function inputArray(len) {
   if (!len) {
     if (process.argv[2] === 'undefined') {
       len = await getInput('Enter length of array ');
-      logger(`Enter ${len} elements`, 'green');
+      logger(`Enter ${len} elements`, { color: 'green' });
     } else {
       len = await getInput();
     }

@@ -11,6 +11,7 @@ module.exports = {
     '!other/**/*.mjs',
     '!src/**/driver.mjs',
     '!src/**/recursion-in-arrays',
+    '!src/**/Node.mjs',
   ],
   coverageReporters: ['text', 'lcov'],
   coverageDirectory: 'coverage',
