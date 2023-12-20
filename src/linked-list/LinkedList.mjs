@@ -1,3 +1,4 @@
+import logger from '../../scripts/logger.mjs';
 import Node from '../node-class/Node.mjs';
 
 export default class LinkedList {
@@ -53,5 +54,50 @@ export default class LinkedList {
     }
     resultantList += 'null';
     return resultantList;
+  }
+  removeFirst() {
+    // base check
+    if (this.isEmpty()) {
+      throw new Error('List is empty. Should have at least 1 item to remove');
+    }
+    const removedNodeValue = this.head.value;
+    this.head = this.head.next;
+    this.size--;
+    return removedNodeValue;
+  }
+  getFirst() {
+    // base check
+    if (this.isEmpty()) {
+      logger('List is empty', { type: 'warn' });
+      return -1;
+    }
+    return this.head.value;
+  }
+  getLast() {
+    // base check
+    if (this.isEmpty()) {
+      logger('List is empty', { type: 'warn' });
+      return -1;
+    }
+    let currNode = this.head;
+    while (currNode.next) {
+      currNode = currNode.next;
+    }
+    return currNode.value;
+  }
+  getAt(index) {
+    // base check
+    if (this.isEmpty()) {
+      logger('List is empty', { type: 'warn' });
+      return -1;
+    } else if (index < 0 || index >= this.size) {
+      logger('Invalid argument', { type: 'error' });
+      return -1;
+    }
+    let currNode = this.head;
+    for (let i = 0; i < index; i++) {
+      currNode = currNode.next;
+    }
+    return currNode.value;
   }
 }
