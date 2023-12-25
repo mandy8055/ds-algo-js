@@ -115,4 +115,97 @@ describe('LinkedList', () => {
       );
     });
   });
+  describe('#findMid', () => {
+    it('should return -1 when the list is empty', () => {
+      const list = new LinkedList();
+      const mid = list.findMid();
+      expect(mid).toBe(-1);
+    });
+
+    it('should return the middle element when the list has odd number of elements', () => {
+      const list = new LinkedList();
+      list.append(1);
+      list.append(2);
+      list.append(3);
+      const mid = list.findMid();
+      expect(mid).toBe(2);
+    });
+
+    it('should return the first middle element when the list has even number of elements', () => {
+      const list = new LinkedList();
+      list.append(1);
+      list.append(2);
+      list.append(3);
+      list.append(4);
+      const mid = list.findMid();
+      expect(mid).toBe(2);
+    });
+  });
+  describe('reverseList', () => {
+    it('should handle the case when the list is empty', () => {
+      const list = new LinkedList();
+      expect(() => list.reverseList()).not.toThrow();
+      expect(list.head).toBeNull();
+    });
+
+    it('should reverse the list when the list has one element', () => {
+      const list = new LinkedList();
+      list.append(1);
+      list.reverseList();
+      expect(list.head.value).toBe(1);
+    });
+
+    it('should reverse the list when the list has multiple elements', () => {
+      const list = new LinkedList();
+      list.append(1);
+      list.append(2);
+      list.append(3);
+      list.reverseList();
+      expect(list.head.value).toBe(3);
+      expect(list.head.next.value).toBe(2);
+      expect(list.head.next.next.value).toBe(1);
+    });
+  });
+  describe('#removeAt', () => {
+    it('should return -1 when the list is empty', () => {
+      const list = new LinkedList();
+      const removedValue = list.removeAt(1);
+      expect(removedValue).toBe(-1);
+    });
+
+    it('should return -1 when the index is out of bounds', () => {
+      const list = new LinkedList();
+      list.append(1);
+      const removedValue = list.removeAt(2);
+      expect(removedValue).toBe(-1);
+    });
+
+    it('should remove the first element when index is 0', () => {
+      const list = new LinkedList();
+      list.append(1);
+      list.append(2);
+      const removedValue = list.removeAt(0);
+      expect(removedValue).toBe(1);
+      expect(list.head.value).toBe(2);
+    });
+
+    it('should remove the last element when index is size - 1', () => {
+      const list = new LinkedList();
+      list.append(1);
+      list.append(2);
+      const removedValue = list.removeAt(1);
+      expect(removedValue).toBe(2);
+      expect(list.head.value).toBe(1);
+    });
+
+    it('should remove the element at the given index', () => {
+      const list = new LinkedList();
+      list.append(1);
+      list.append(2);
+      list.append(3);
+      const removedValue = list.removeAt(1);
+      expect(removedValue).toBe(2);
+      expect(list.head.next.value).toBe(3);
+    });
+  });
 });

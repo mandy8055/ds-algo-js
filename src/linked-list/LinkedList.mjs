@@ -65,6 +65,50 @@ export default class LinkedList {
     this.size--;
     return removedNodeValue;
   }
+  removeLast() {
+    // base check
+    if (this.isEmpty()) {
+      throw new Error('List is empty. Should have at least 1 item to remove');
+    }
+    if (this.getSize() === 1) {
+      return this.removeFirst();
+    }
+    let curr = this.head;
+    while (curr.next.next) {
+      curr = curr.next;
+    }
+    const removedNodeValue = curr.next.value;
+    curr.next = null;
+    this.size--;
+    return removedNodeValue;
+  }
+  removeAt(index) {
+    // base check
+    if (this.isEmpty()) {
+      logger('List is empty', { type: 'warn' });
+      return -1;
+    } else if (index < 0 || index >= this.size) {
+      logger('Invalid argument', { type: 'error' });
+      return -1;
+    }
+    if (index === 0) {
+      return this.removeFirst();
+    }
+    if (index === this.getSize() - 1) {
+      return this.removeLast();
+    }
+    // Main case
+    let prev;
+    let curr = this.head;
+    let idx = 0;
+    while (idx !== index) {
+      prev = curr;
+      curr = curr.next;
+      idx++;
+    }
+    prev.next = curr.next;
+    return curr.value;
+  }
   getFirst() {
     // base check
     if (this.isEmpty()) {
@@ -99,5 +143,54 @@ export default class LinkedList {
       currNode = currNode.next;
     }
     return currNode.value;
+  }
+  getNodeAt(index) {
+    // base check
+    if (this.isEmpty()) {
+      logger('List is empty', { type: 'warn' });
+      return -1;
+    } else if (index < 0 || index >= this.size) {
+      logger('Invalid argument', { type: 'error' });
+      return -1;
+    }
+    let currNode = this.head;
+    for (let i = 0; i < index; i++) {
+      currNode = currNode.next;
+    }
+    return currNode;
+  }
+
+  reverseList() {
+    if (this.isEmpty()) {
+      logger('List is empty', { type: 'warn' });
+      return;
+    }
+    let p = null; // previous to previous
+    let q = null; // previous
+    while (this.head) {
+      p = q;
+      q = this.head;
+      this.head = this.head.next;
+      q.next = p;
+    }
+    this.head = q;
+  }
+
+  findMid() {
+    if (this.isEmpty()) {
+      logger('List is empty', { type: 'warn' });
+      return -1;
+    }
+    let fast = this.head;
+    let slow = this.head;
+    while (fast.next && fast.next.next) {
+      fast = fast.next.next;
+      slow = slow.next;
+    }
+    // If in case the middle element appears in second half for even numbered list
+    // if (fast.next) {
+    //   slow = slow.next;
+    // }
+    return slow.value;
   }
 }
