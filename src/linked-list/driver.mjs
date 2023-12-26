@@ -1,5 +1,6 @@
 import logger from '../../scripts/logger.mjs';
 import LinkedList from './LinkedList.mjs';
+import findIntersectionPoint from './intersection-point-of-two-ll.mjs';
 import reverseListData from './reverse-list-data.mjs';
 
 const linkedList = new LinkedList();
